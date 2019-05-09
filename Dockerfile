@@ -12,4 +12,4 @@ ENTRYPOINT ["/entry"]
 RUN mkdir /models
 RUN chmod 0755 /models
 
-COPY serving /data
+COPY backend /data

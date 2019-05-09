@@ -4,7 +4,7 @@ PATH=$PATH:/usr/sbin
 set -e
 
 if [ "$1" = "start" ]; then
-  exec python /data/main.py
+  exec python /data/app.py
 elif [ "$1" = "query" ]; then
   exec python /data/api.py
 elif [ "$1" = "-b" ]; then

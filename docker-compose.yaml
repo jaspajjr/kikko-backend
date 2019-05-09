@@ -1,0 +1,18 @@
+version: "2.2"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file: .env
+    tty: true
+    stdin_open: true
+    ports:
+      - 5000:5000
+
+  db:
+    image: postgres:11-alpine
+    hostname: postgres-db
+    env_file: .env
+    expose:
+      - 5432
