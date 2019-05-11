@@ -22,7 +22,7 @@ def create_app(test_config=None):
 
     db.init_app(app)
 
-    from kikko import endpoints
+    from kikko.jobs import endpoints
     app.register_blueprint(endpoints.bp)
 
     @app.route('/hello')

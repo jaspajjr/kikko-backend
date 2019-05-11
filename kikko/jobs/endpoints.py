@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-bp = Blueprint('endpoint', __name__, url_prefix='/')
+bp = Blueprint('endpoints', __name__, url_prefix='/')
 
 
 @bp.route('/', methods=['GET'])
@@ -15,7 +15,7 @@ def get_job(id):
 
 @bp.route('/jobs', methods=['GET'])
 def get_jobs():
-    pass
+    return "Hello /jobs"
 
 
 @bp.route('/create_job', methods=['POST'])
