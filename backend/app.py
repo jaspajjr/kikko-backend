@@ -45,6 +45,12 @@ def read_specific_job(job_id):
     return jsonify({job_id: job})
 
 
+@app.route('/jobs', methods=['GET'])
+def read_all_jobs():
+    jobs = Job.query.all()
+    return jsonify({'results': jobs})
+
+
 @app.route('/search', methods=['POST'])
 def search_job():
     job_query = request.json
