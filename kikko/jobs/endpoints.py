@@ -1,4 +1,5 @@
 from flask import Blueprint
+from .models import Job
 
 bp = Blueprint('endpoints', __name__, url_prefix='/')
 
@@ -15,6 +16,8 @@ def get_job(id):
 
 @bp.route('/jobs', methods=['GET'])
 def get_jobs():
+    result = Job.query.all()
+    print(result)
     return "Hello /jobs"
 
 
