@@ -5,8 +5,10 @@ class Job(db.Model):
     __tablename__ = 'jobs'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
+    username = db.Column(db.String)
+    password = db.Column(db.String)
 
-    def __init__(self, ids, name):
+    def __init__(self, ids, name, password):
         self.id = ids
-        self.name = name
+        self.username = name
+        self.password = password

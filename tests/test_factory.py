@@ -1,4 +1,4 @@
-from .kikko import create_app
+from kikko import create_app
 
 
 def test_config():

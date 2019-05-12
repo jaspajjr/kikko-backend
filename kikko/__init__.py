@@ -22,8 +22,6 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from kikko import db
-
     db.init_app(app)
 
     from kikko.jobs import endpoints

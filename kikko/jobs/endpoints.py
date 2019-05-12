@@ -11,13 +11,12 @@ def index():
 
 @bp.route('/job/<int:id>', methods=['GET'])
 def get_job(id):
-    pass
+    return "Hello /jobs"
 
 
 @bp.route('/jobs', methods=['GET'])
 def get_jobs():
     result = Job.query.all()
-    print(result)
     return "Hello /jobs"
 
 
