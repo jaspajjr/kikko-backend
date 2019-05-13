@@ -1,8 +1,22 @@
-def test_get_job(client):
+import json
+
+
+def test_get_jobs(client):
     response = client.get('/jobs')
 
-    assert b'Hello /jobs' == response.data
+    # result = json.loads(response.get_data())
+
     assert response.status_code == 200
+
+
+def test_get_job(client):
+    response = client.get('/job/111')
+
+    result = json.loads(response.get_data())
+
+    assert response.status_code == 200
+    assert result['job_111'] is not None
+    assert isinstance(result['job_111'][0], dict)
 
 
 def test_create_job(client):

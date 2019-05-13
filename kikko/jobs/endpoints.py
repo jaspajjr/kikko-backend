@@ -15,14 +15,18 @@ def index():
 
 @bp.route('/job/<int:id>', methods=['GET'])
 def get_job(id):
-    return "Hello /jobs"
+    result = Job.query.filter_by(id=id).first()
+    job = job_schema.dump(result)
+    job_id = 'job_{id_val}'.format(id_val=id)
+
+    return jsonify({job_id: job})
 
 
 @bp.route('/jobs', methods=['GET'])
 def get_jobs():
     result = Job.query.all()
     jobs = jobs_schema.dump(result)
-    return jsonify({'jobs': jobs})
+    return jsonify(jobs=jobs)
 
 
 @bp.route('/create_job', methods=['POST'])

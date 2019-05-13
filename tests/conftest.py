@@ -1,5 +1,8 @@
 import os
 import tempfile
+from sqlalchemy import text
+
+from kikko import db
 
 import pytest
 from kikko import create_app
@@ -17,6 +20,12 @@ def app():
         'TESTING': True,
         'DATABASE': db_path,
     })
+
+    with app.app_context():
+        sql = text(_data_sql)
+        db.engine.execute(sql)
+        # names = [row[0] for row in result]
+        # print(names)
 
     yield app
 
